@@ -214,6 +214,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="container">
+          <h1 className='Heading'>Alpaca Generator</h1>
           <div className='image-container'>
             <img className="bg" src={getFeatureImage('backgrounds', 'backgrounds')} alt="Background" />
             <img className="acce" src={getFeatureImage('accessories', 'accessories')} alt="Accessory" />
@@ -226,14 +227,15 @@ function App() {
             <img className="nose" src={alpacaImages['nose.png']} alt="Nose" />
             <canvas id="alpacaCanvas" width="400" height="400" style={{ display: 'none' }}></canvas>
           </div>
-          <div className="sidebar">
+
             <div className='main-buttons'>
               <button className="main-button" onClick={downloadAlpacaImage}>Download Alpaca</button>
               <button className="main-button" onClick={createRandomAlpaca}>Create Random Alpaca</button>
-            </div>
+            </div> 
+                    
+            <div className="sidebar">
             <div className="section-header">ACCESSORIZE THE ALPACA</div>
             <div className='button-container'>
-              {/* Feature toggle buttons */}
               <button onClick={() => showFeature('acc')}>Accessories</button>
               <button onClick={() => showFeature('bg')}>Backgrounds</button>
               <button onClick={() => showFeature('ears')}>Ears</button>
@@ -244,17 +246,16 @@ function App() {
               <button onClick={() => showFeature('neck')}>Neck</button>
             </div>
             <div className="section-header">STYLE</div>
-            {/* Conditional rendering sections for each feature's selection options */}
-            {showAccSelection && <div className="acc-selection">{renderAccSelectionButtons()}</div>}
-            {showBgSelection && <div className="bg-selection">{renderBgSelectionButtons()}</div>}
-            {showEarSelection && <div className="ear-selection">{renderEarSelectionButtons()}</div>}
-            {showEyesSelection && <div className="eyes-selection">{renderEyesSelectionButtons()}</div>}
-            {showHairSelection && <div className="hair-selection">{renderHairSelectionButtons()}</div>}
-            {showLegSelection && <div className="leg-selection">{renderLegSelectionButtons()}</div>}
-            {showMouthSelection && <div className="mouth-selection">{renderMouthSelectionButtons()}</div>}
-            {showNeckSelection && <div className="neck-selection">{renderNeckSelectionButtons()}</div>}
+            {showAccSelection && <div className="selection">{renderAccSelectionButtons()}</div>}
+            {showBgSelection && <div className="selection">{renderBgSelectionButtons()}</div>}
+            {showEarSelection && <div className="selection">{renderEarSelectionButtons()}</div>}
+            {showEyesSelection && <div className="selection">{renderEyesSelectionButtons()}</div>}
+            {showHairSelection && <div className="selection">{renderHairSelectionButtons()}</div>}
+            {showLegSelection && <div className="selection">{renderLegSelectionButtons()}</div>}
+            {showMouthSelection && <div className="selection">{renderMouthSelectionButtons()}</div>}
+            {showNeckSelection && <div className="selection">{renderNeckSelectionButtons()}</div>}
           </div>
-        </div>
+        </div> 
       </header>
     </div>
   );
