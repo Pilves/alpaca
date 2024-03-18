@@ -56,6 +56,8 @@
   height: 400px;
   position: relative;
   order: -1; /* To place it to the left */
+  overflow: hidden;
+  margin: 0 auto;
 }
 .image-container img{
   max-width: 100%;
@@ -95,6 +97,8 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   border-radius: 15px;
   margin-left: 20px;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
 }
 
 .section-header {
@@ -110,24 +114,31 @@
   height: fit-content;
 }
 
-/* Responsive Design Adjustments */
 @media (max-width: 768px) {
   .App-header, .sidebar {
     flex-direction: column;
     width: 100%;
   }
 
+  /* Adjust the position and z-index of the image container */
   .image-container {
-    width: 90%;
-    height: 300px;
-    margin: 0 auto 20px;
-    order: 1; 
+    position: fixed;
+    top: 10%; /* Adjust this value as needed to not cover the buttons */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20; /* Higher than the container to stack on top */
   }
 
-  .container, .sidebar {
+  /* Ensure the container comes after the image container visually */
+  .container {
+    padding-top: 470px; /* Adjust this value so there's space for the image container */
     width: 100%;
     margin: 0 auto;
-    order: 2; /* Proper stacking order on mobile */
-    margin-top: 1rem;
+    order: 1;
+  }
+
+  .sidebar {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
   }
 }
